@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="form">
+        <input type="date" name="date" id="date">
+        <input type="submit" value="submit">
+    </form>
+    <p id="data"></p>
+    <script>
+        var cars=[
+            {
+                color:'gray',
+                model:'1',
+                doors:4
+            },
+            {
+                color:'yellow',
+                model:'2',
+                doors:3
+            },
+            {
+                color:'white',
+                model:'3',
+                doors:2
+            }
+        ]  
+        document.write(">>>>>>>>>\n")
+        var jsoncar=JSON.stringify(cars)
+        document.write(jsoncar)
+        document.write("</br>")
+        for (let i=0;i<cars.length;i++){
+            document.write(cars[i].color+"</br>")
+        }
+
+
+        const a={
+            'DataStructures':[
+                {
+                    Name:'tree',
+                    Course:'intro',
+                    content:['1','B','C']
+                },
+                {
+                    Name:'tree1',
+                    Course:'intro1',
+                    content:['1','B','C','D']
+                }
+            ],
+            'XYZ':{
+                Name:'Graphics',
+                Topics:['BFS','CDF','Sorting']
+            }
+        }
+
+        console.log(a.DataStructures[0].Name)
+        console.log(a.DataStructures[1].Name)
+        console.log(a.XYZ.Name)
+        console.log(a.XYZ.Topics)
+        console.log(a.XYZ.Topics[0])
+        console.log(a)
+
+        const form=document.getElementById('form');
+        form.onsubmit=(event)=>{
+            event.preventDefault();
+
+            const date=document.getElementById('date').value;
+            const data=document.getElementById('data');
+             
+            let dt=new Date(date);
+            data.innerHTML=`${dt}`;
+        }
+
+
+
+    </script>
+    
+</body>
+</html>
