@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <style>
+        #helloText {
+            color: blue;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="incrementButton">Increment</button>
+    <button id="decrementButton">Decrement</button>
+    <button id="stopButton">Stop</button>
+    <p id="helloText">Hello</p>
+
+    <script>
+        let fontSize = 10;
+        let intervalId;
+        const helloElement = document.getElementById("helloText");
+        const incrementButton = document.getElementById("incrementButton");
+        const decrementButton = document.getElementById("decrementButton");
+        const stopButton = document.getElementById("stopButton");
+        const maxFontSize = 80; // Set your maximum font size
+        const minFontSize = 10; // Set your minimum font size
+
+        function incrementFontSize() {
+            clearInterval(intervalId); // Clear any existing interval
+            intervalId = setInterval(() => {
+                if (fontSize < maxFontSize) {
+                    fontSize++;
+                    helloElement.style.fontSize = fontSize + "px";
+                } else {
+                    clearInterval(intervalId); // Stop incrementing if max is reached
+                }
+            }, 100); // Reduced interval for smoother change
+        }
+
+        function decrementFontSize() {
+            clearInterval(intervalId); // Clear any existing interval
+            intervalId = setInterval(() => {
+                if (fontSize > minFontSize) {
+                    fontSize--;
+                    helloElement.style.fontSize = fontSize + "px";
+                } else {
+                    clearInterval(intervalId); // Stop decrementing if min is reached
+                }
+            }, 100); // Reduced interval for smoother change
+        }
+
+        function stopFontSize() {
+            clearInterval(intervalId);
+        }
+
+        incrementButton.addEventListener("click", incrementFontSize);
+        decrementButton.addEventListener("click", decrementFontSize);
+        stopButton.addEventListener("click", stopFontSize);
+    </script>
+</body>
+</html>
