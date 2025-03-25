@@ -2,3 +2,6 @@
 ## Sem 4 
 - JSON
 - Node.js
+'''bash
+pip install
+'''
